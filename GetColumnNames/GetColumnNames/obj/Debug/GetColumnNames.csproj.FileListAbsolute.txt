@@ -1,7 +1,7 @@
 C:\Users\scott\Documents\Visual Studio 2017\Projects\GetColumnNames\GetColumnNames\bin\Debug\GetColumnNames.exe.config
 C:\Users\scott\Documents\Visual Studio 2017\Projects\GetColumnNames\GetColumnNames\bin\Debug\GetColumnNames.exe
 C:\Users\scott\Documents\Visual Studio 2017\Projects\GetColumnNames\GetColumnNames\bin\Debug\GetColumnNames.pdb
+C:\Users\scott\Documents\Visual Studio 2017\Projects\GetColumnNames\GetColumnNames\obj\Debug\GetColumnNames.csprojAssemblyReference.cache
 C:\Users\scott\Documents\Visual Studio 2017\Projects\GetColumnNames\GetColumnNames\obj\Debug\GetColumnNames.csproj.CoreCompileInputs.cache
 C:\Users\scott\Documents\Visual Studio 2017\Projects\GetColumnNames\GetColumnNames\obj\Debug\GetColumnNames.exe
 C:\Users\scott\Documents\Visual Studio 2017\Projects\GetColumnNames\GetColumnNames\obj\Debug\GetColumnNames.pdb
-C:\Users\scott\Documents\Visual Studio 2017\Projects\GetColumnNames\GetColumnNames\obj\Debug\GetColumnNames.csprojAssemblyReference.cache

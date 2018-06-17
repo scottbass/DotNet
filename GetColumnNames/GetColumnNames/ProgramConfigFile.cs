@@ -9,7 +9,7 @@ namespace GetColumnNames
 {
     class ProgramConfigFile
     {
-        private static string _pgmName = System.AppDomain.CurrentDomain.FriendlyName;  // alternative: System.Diagnostics.Process.GetCurrentProcess().ProcessName
+        private static string _pgmName = null;
         private static int _verbosity = 0;
 
         private static string _driver = null;
@@ -21,8 +21,7 @@ namespace GetColumnNames
 
         static void Main(string[] args)
         {
-            // Parse command line
-            bool show_help = false;
+            _pgmName = System.AppDomain.CurrentDomain.FriendlyName;  // alternative: System.Diagnostics.Process.GetCurrentProcess().ProcessName
 
             // Read configuration file
             _driver = ConfigurationManager.AppSettings["Driver"];
@@ -32,19 +31,22 @@ namespace GetColumnNames
             _options = ConfigurationManager.AppSettings["Options"];
             _query = ConfigurationManager.AppSettings["Query"];
 
+            // Parse command line
+            bool show_help = false;
+
             OptionSet p = new OptionSet()
                 .Add(
-                    "s:|server:|S:|Server:", 
+                    "s:|server|S|Server",
                     "The SQL Server instance to connect to.",
                     v => { if (v != null) _server = v; }
                  )
                 .Add(
-                    "d:|database:|D:|Database:",
+                    "d=|database|D|Database",
                     "The SQL Server database to connect to.",
                     v => { if (v != null) _database = v; }
                  )
                 .Add(
-                    "t:|table:|T:|Table:",
+                    "t=|table|T|Table",
                     "The SQL Server table whose columns will be returned.",
                     v => { if (v != null) _table = v; }
                  )
@@ -72,7 +74,8 @@ namespace GetColumnNames
                 return;
             }
 
-            if (show_help || (_server == null || _database == null || _table == null))
+            if (show_help || 
+               (_driver == null || _server == null || _database == null || _table == null || _query == null))
             {
                 ShowHelp(p);
                 return;
@@ -114,7 +117,7 @@ namespace GetColumnNames
 
         private static void ShowHelp(OptionSet p)
         {
-            Console.WriteLine("Usage: GetColumnNames.exe -Server VALUE -Database VALUE -Table VALUE\n");
+            Console.WriteLine(String.Format("Usage: {0} -Server VALUE -Database VALUE -Table VALUE\n", _pgmName));
             p.WriteOptionDescriptions(Console.Out);
         }
 

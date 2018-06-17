@@ -21,17 +21,17 @@ namespace GetColumnNames
 
             OptionSet p = new OptionSet()
                 .Add(
-                    "s=|server=|S=|Server=", 
+                    "s=|server|S|Server", 
                     "The SQL Server instance to connect to.",
                     v => _server = v
                  )
                 .Add(
-                    "d=|database=|D=|Database=",
+                    "d=|database|D|Database",
                     "The SQL Server database to connect to.",
                     v => _database = v
                  )
                 .Add(
-                    "t=|table=|T=|Table=",
+                    "t=|table|T|Table",
                     "The SQL Server table whose columns will be returned.",
                     v => _table = v
                  )
